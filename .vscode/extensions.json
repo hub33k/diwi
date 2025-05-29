@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    // General
+    "editorconfig.editorconfig",
+
+    // JavaScript/TypeScript
+    "ms-vscode.vscode-typescript-next",
+    "yoavbls.pretty-ts-errors",
+    "usernamehw.errorlens",
+    "biomejs.biome",
+
+    // Misc
+    "bradlc.vscode-tailwindcss"
+  ]
+}
