@@ -1,0 +1,28 @@
+# https://medium.com/@abenezer.ayalneh.42/install-and-run-surrealdb-via-docker-compose-4882742663f5
+# https://surrealdb.com/docs/surrealml
+
+# TODO (hub33k): set specific version
+
+# NOTE (hub33k): run with env-file - `docker compose --env-file ./apps/api/.env ...`
+
+services:
+  database:
+    entrypoint:
+      - /surreal
+      - start
+      - --user
+      - ${SURREALDB_USER}
+      - --pass
+      - ${SURREALDB_PASS}
+      - --log
+      - debug
+      - rocksdb:/mydata/mydatabase.db
+    image: surrealdb/surrealdb:latest
+    user: ${SURREALDB_USER}
+    ports:
+      - '8000:8000'
+    volumes:
+      - database_data:/mydata
+
+volumes:
+  database_data:
