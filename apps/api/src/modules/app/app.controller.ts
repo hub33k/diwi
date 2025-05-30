@@ -1,3 +1,4 @@
+import { TUser } from '@diwi/contracts';
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
@@ -6,7 +7,12 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  public async getHello(): Promise<string> {
+    return await this.appService.getHello();
+  }
+
+  @Get('/users')
+  public async getUsers(): Promise<TUser[]> {
+    return await this.appService.getUsers();
   }
 }

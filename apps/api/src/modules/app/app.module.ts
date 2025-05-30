@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppConfigModule } from '../app-config/app-config.module';
+import { DatabaseModule } from '../database/database.module';
+import { SurrealDbModule } from '../surrealdb/surrealdb.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -19,7 +21,10 @@ import { AppService } from './app.service';
     AppConfigModule,
 
     // Non-global Modules
+    DatabaseModule,
+    SurrealDbModule,
   ],
+  exports: [],
   controllers: [AppController],
   providers: [AppService],
 })

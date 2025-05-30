@@ -17,6 +17,7 @@
     "health-check": "bun run lint && bun run check && bun run format && bun run typecheck"
   },
   "dependencies": {
+    "surrealdb": "^1.3.2",
     "zod": "^3.25.36"
   }
 }

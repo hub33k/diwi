@@ -4,7 +4,7 @@
   "type": "module",
   "workspaces": ["apps/*", "libs/*"],
   "packageManager": "bun@1.2.15",
-   "scripts": {
+  "scripts": {
     "turbo": "turbo",
     "dc": "docker compose --env-file ./apps/api/.env -p diwi -f",
     "dc:dependencies": "bun run dc .docker/dev/docker-compose-dependencies.yml",
