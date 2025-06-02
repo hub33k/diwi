@@ -1,6 +1,7 @@
 import { Logger, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { BaseConfig } from './modules/app-config/base-config.service';
 import { AppModule } from './modules/app/app.module';
 
@@ -10,6 +11,15 @@ async function bootstrap() {
     bodyParser: true,
     logger: new Logger(),
   });
+
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle('Did I watch it? API')
+    .setVersion('0.0')
+    .addTag('diwi')
+    .build();
+  const documentFactory = () =>
+    SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup('/api/swagger', app, documentFactory);
 
   const baseConfig = app.get(BaseConfig);
   app.enableCors(baseConfig.corsOptions);
