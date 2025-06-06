@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, jest } from 'bun:test';
 import { Test, TestingModule } from '@nestjs/testing';
 import { SurrealDbService } from '~/modules/surrealdb/surrealdb.service';
 import { AppController } from '../../app.controller';

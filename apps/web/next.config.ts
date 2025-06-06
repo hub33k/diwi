@@ -1,7 +1,16 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+import { env } from './src/env';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: `${env.API_URL}/:path*`,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

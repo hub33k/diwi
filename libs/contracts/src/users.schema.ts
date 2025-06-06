@@ -7,6 +7,7 @@ import { passwordValidator } from './validators';
 export const userSchema = z.object({
   // id: z.string().ulid().min(1),
   id: recordIdSchema,
+  // id: record('user'),
 
   email: z.string().email().min(1),
   username: z.string().min(1),
