@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import '~/styles/globals.css';
+import { env } from '~/env';
 import { AppProviders } from '~/modules/App';
 import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '~/modules/Config';
 
@@ -23,9 +24,14 @@ export const metadata: Metadata = {
   keywords: APP_KEYWORDS,
 };
 
-interface IRootLayoutProps extends Readonly<React.PropsWithChildren> {}
+if (env.ENABLE_MSW && process.env.NEXT_RUNTIME === 'nodejs') {
+  const { server } = require('~/mocks/node');
+  server.listen();
+}
 
-export default function RootLayout({ children }: IRootLayoutProps) {
+interface IRootLayoutProps extends React.PropsWithChildren {}
+
+export default function RootLayout({ children }: Readonly<IRootLayoutProps>) {
   return (
     <html lang="en">
       <head>

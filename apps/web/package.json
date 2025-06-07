@@ -2,10 +2,14 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "msw": {
+    "workerDirectory": ["public"]
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "test": "bun --bun test",
     "lint": "biome lint ./",
     "lint:write": "biome lint --write ./",
     "check": "biome check ./",
@@ -14,7 +18,7 @@
     "format": "biome format ./",
     "format:write": "biome format --write ./",
     "typecheck": "tsc -p ./tsconfig.json",
-    "health-check": "bun run lint && bun run check && bun run format && bun run typecheck"
+    "health-check": "bun run lint && bun run check && bun run format && bun run typecheck && bun run test"
   },
   "dependencies": {
     "@diwi/config": "workspace:*",
@@ -30,11 +34,17 @@
     "zod": "^3.24"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@happy-dom/global-registrator": "^17.6.3",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "msw": "2.4.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

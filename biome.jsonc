@@ -7,7 +7,15 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [".turbo", ".nuxt", ".next", ".output", "dist", "node_modules"]
+    "ignore": [
+      ".turbo",
+      ".nuxt",
+      ".next",
+      ".output",
+      "dist",
+      "node_modules",
+      "mockServiceWorker.js"
+    ]
   },
   "formatter": {
     "enabled": true,
