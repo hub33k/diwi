@@ -1,12 +1,13 @@
 'use client';
 
 import { Suspense, use } from 'react';
+import { env } from '~/env';
 import { handlers } from '~/mocks/handlers';
 
 // https://github.com/mswjs/examples/tree/with-next/examples/with-next
 
 const mockingEnabledPromise =
-  typeof window !== 'undefined'
+  env.NEXT_PUBLIC_ENABLE_MSW && typeof window !== 'undefined'
     ? import('~/mocks/browser').then(async ({ worker }) => {
         await worker.start({
           onUnhandledRequest(request, print) {
