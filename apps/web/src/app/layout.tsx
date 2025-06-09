@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import '~/styles/globals.css';
 import { env } from '~/env';
 import { AppProviders } from '~/modules/App';
 import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '~/modules/Config';
+
+import '@diwi/ui/globals.css';
+import '~/styles/globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,7 +35,7 @@ interface IRootLayoutProps extends React.PropsWithChildren {}
 
 export default function RootLayout({ children }: Readonly<IRootLayoutProps>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
       </head>

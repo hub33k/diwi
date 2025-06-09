@@ -1,4 +1,5 @@
 import type { TUser } from '@diwi/contracts';
+import { Badge, Button } from '@diwi/ui';
 import axios from 'axios';
 import type { Metadata } from 'next';
 import { getBaseUrl } from '~/utils';
@@ -27,7 +28,20 @@ export const HomePage = async () => {
 
   return (
     <>
-      <h1>Home</h1>
+      <h1 className="text-2xl font-bold">Home</h1>
+
+      <div className="mb-4" />
+
+      <Button size="lg" variant="destructive">
+        Delete
+      </Button>
+
+      <div className="mb-4" />
+
+      <Badge variant="secondary">Users</Badge>
+
+      <div className="mb-4" />
+
       <UsersList data={users} />
     </>
   );
