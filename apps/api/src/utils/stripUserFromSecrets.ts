@@ -1,7 +1,11 @@
 import { type TUser, TUserWithoutSecrets } from '@diwi/contracts';
 
 export const stripUserFromSecrets = (user: TUser): TUserWithoutSecrets => {
-  const { refresh_token, password_hash, ...resultUser } = user;
+  const {
+    refresh_token: _refresh_token,
+    password_hash: _password_hash,
+    ...resultUser
+  } = user;
 
   return {
     ...resultUser,

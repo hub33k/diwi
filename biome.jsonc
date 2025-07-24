@@ -1,13 +1,14 @@
+// https://biomejs.dev/guides/big-projects/#monorepo
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
   "vcs": {
-    "enabled": true,
+    "enabled": true, // false
     "clientKind": "git",
-    "useIgnoreFile": false
+    "useIgnoreFile": true
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [
+    "experimentalScannerIgnores": [
       ".turbo",
       ".nuxt",
       ".next",
@@ -23,11 +24,7 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 80,
-    "lineEnding": "lf",
-    "ignore": []
-  },
-  "organizeImports": {
-    "enabled": true
+    "lineEnding": "lf"
   },
   "linter": {
     "enabled": true,
@@ -59,28 +56,34 @@
       "quoteStyle": "double"
     }
   },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
   "overrides": [
+    // web
+    // ================================================================
     {
-      "include": ["apps/api/**"],
+      "includes": ["apps/web/public/mockServiceWorker.js"],
       "linter": {
-        "rules": {
-          "style": {
-            "useImportType": "off"
-          }
-        }
+        "enabled": false
+      },
+      "formatter": {
+        "enabled": false
       }
     },
-    // https://biomejs.dev/internals/language-support/#html-super-languages-support
+
+    // api
+    // ================================================================
     {
-      "include": ["*.svelte", "*.astro", "*.vue"],
+      "includes": ["apps/api/**"],
       "linter": {
         "rules": {
-          "correctness": {
-            "noUnusedImports": "off",
-            "noUnusedVariables": "off"
-          },
           "style": {
-            "useConst": "off",
             "useImportType": "off"
           }
         }

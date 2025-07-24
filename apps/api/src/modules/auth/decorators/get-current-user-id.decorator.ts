@@ -1,5 +1,5 @@
 import { type TJwtPayloadData } from '@diwi/contracts';
-import { type ExecutionContext, createParamDecorator } from '@nestjs/common';
+import { createParamDecorator, type ExecutionContext } from '@nestjs/common';
 
 export const GetCurrentUserId = createParamDecorator(
   (_: undefined, context: ExecutionContext): string => {

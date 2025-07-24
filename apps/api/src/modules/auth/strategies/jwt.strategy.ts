@@ -8,7 +8,7 @@ import { BaseConfig } from '../../app-config/base-config.service';
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor(
-    private readonly baseConfig: BaseConfig,
+    baseConfig: BaseConfig,
     private readonly usersService: UsersService,
   ) {
     super({

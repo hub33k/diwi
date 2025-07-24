@@ -1,5 +1,5 @@
 import type { TUser } from '@diwi/contracts';
-import { http, HttpResponse } from 'msw';
+import { HttpResponse, http } from 'msw';
 import { getBaseUrl } from '~/utils';
 
 const user1: TUser = {

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "msw": {
-    "workerDirectory": ["public"]
+    "workerDirectory": [
+      "public"
+    ]
   },
   "scripts": {
     "dev": "next dev --turbopack",

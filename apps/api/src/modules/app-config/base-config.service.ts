@@ -44,7 +44,7 @@ export class BaseConfig {
   readonly jwtSecretKey: string;
   readonly jwtRefreshSecretKey: string;
 
-  constructor(private readonly configService: ConfigService<BaseEnvVariables>) {
+  constructor(configService: ConfigService<BaseEnvVariables>) {
     const config = BaseEnvVariablesSchema.parse({
       NODE_ENV: configService.get<NodeEnvironment>('NODE_ENV'),
       LOG_LEVEL: configService.get<string>('LOG_LEVEL', 'info'),
@@ -66,7 +66,7 @@ export class BaseConfig {
       ),
     });
 
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    // biome-ignore lint/style/noNonNullAssertion: off
     this.version = process.env.npm_package_version!;
     this.nodeEnv = config.NODE_ENV;
     this.logLevel = config.LOG_LEVEL || 'info';

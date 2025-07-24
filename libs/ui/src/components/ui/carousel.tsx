@@ -118,10 +118,10 @@ function Carousel({
         canScrollNext,
       }}
     >
+      {/** biome-ignore lint/a11y/useSemanticElements: off */}
       <div
         onKeyDownCapture={handleKeyDown}
         className={cn('relative', className)}
-        // biome-ignore lint/a11y/useSemanticElements: off
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"

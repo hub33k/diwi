@@ -2,8 +2,11 @@
   "name": "diwi",
   "private": true,
   "type": "module",
-  "workspaces": ["apps/*", "libs/*"],
-  "packageManager": "bun@1.2.15",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "packageManager": "bun@1.2.19",
   "scripts": {
     "turbo": "turbo",
     "dc": "docker compose --env-file ./apps/api/.env -p diwi -f",
@@ -20,8 +23,8 @@
     "health-check": "bun run lint && bun run check && bun run format"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@types/bun": "latest",
-    "turbo": "^2.5.4"
+    "@biomejs/biome": "2.1.2",
+    "@types/bun": "^1.2.19",
+    "turbo": "^2.5.5"
   }
 }

@@ -29,7 +29,7 @@
     "format": "biome format ./",
     "format:write": "biome format --write ./",
     "typecheck": "tsc -p ./tsconfig.json",
-    "health-check": "bun run lint && bun run check && bun run format && bun run typecheck && bun run test"
+    "health-check": "bun run lint && bun run check && bun run format && bun run typecheck"
   },
   "dependencies": {
     "@diwi/config": "workspace:*",

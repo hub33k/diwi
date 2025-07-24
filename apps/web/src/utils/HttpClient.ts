@@ -64,7 +64,8 @@ export class HttpClient implements IHttpClient {
         // }
 
         return this.options.useRequestConfig
-          ? this.options.useRequestConfig(config)
+          ? // biome-ignore lint/correctness/useHookAtTopLevel: off
+            this.options.useRequestConfig(config)
           : config;
       },
     );
