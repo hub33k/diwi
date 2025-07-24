@@ -18,11 +18,11 @@ export class SurrealDbService
   async onModuleInit() {
     await this.connect(this.baseConfig.databaseUrl, {
       auth: {
-        username: this.baseConfig.surrealdbUser,
-        password: this.baseConfig.surrealdbPass,
+        username: this.baseConfig.databaseUser,
+        password: this.baseConfig.databasePass,
       },
-      namespace: this.baseConfig.surrealdbNs,
-      database: this.baseConfig.surrealdbDb,
+      namespace: this.baseConfig.databaseNamespace,
+      database: this.baseConfig.databaseName,
     });
   }
 

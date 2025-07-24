@@ -4,15 +4,15 @@ import { loadSchema, setupDb } from '../tools/db/utils';
 
 let db: Surreal;
 
-const namespace = process.env.SURREALDB_NS;
-const database = process.env.SURREALDB_DB;
+const namespace = process.env.DATABASE_NAMESPACE;
+const database = process.env.DATABASE_NAME;
 
 beforeAll(async () => {
   // global setup
   // console.log('Starting e2e tests');
   // console.log('DATABASE_URL', process.env.DATABASE_URL);
-  // console.log('NAMESPACE', process.env.SURREALDB_NS);
-  // console.log('DATABASE', process.env.SURREALDB_DB);
+  // console.log('NAMESPACE', process.env.DATABASE_NAMESPACE);
+  // console.log('DATABASE', process.env.DATABASE_NAME);
 
   db = await setupDb();
   await db.query(`DEFINE NAMESPACE IF NOT EXISTS ${namespace};`);

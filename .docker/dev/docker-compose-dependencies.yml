@@ -11,14 +11,14 @@ services:
       - /surreal
       - start
       - --user
-      - ${SURREALDB_USER}
+      - ${DATABASE_USER}
       - --pass
-      - ${SURREALDB_PASS}
+      - ${DATABASE_PASS}
       - --log
       - debug
       - rocksdb:/mydata/mydatabase.db
     image: surrealdb/surrealdb:latest
-    user: ${SURREALDB_USER}
+    user: ${DATABASE_USER}
     ports:
       - '8000:8000'
     volumes:

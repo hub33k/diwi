@@ -3,21 +3,14 @@ import { HttpResponse, http } from 'msw';
 import { getBaseUrl } from '~/utils';
 
 const user1: TUser = {
-  id: {
-    id: '1',
-    tb: 'user',
-    toJSON: () => '1',
-    equals: (_other: unknown): boolean => {
-      return true;
-    },
-  },
+  id: 'user:test1',
   username: 'Test 1',
   email: 'nV4fW@example.com',
-  password_hash: 'hash',
   name: 'Bob',
-  refresh_token: null,
-  created_at: new Date(),
-  updated_at: new Date(),
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  status: 'active',
+  isEmailVerified: false,
 };
 
 const baseURL = getBaseUrl();

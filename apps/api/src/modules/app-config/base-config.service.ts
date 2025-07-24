@@ -13,11 +13,10 @@ const BaseEnvVariablesSchema = z.object({
   API_URL: z.string(),
 
   DATABASE_URL: z.string(),
-  SURREALDB_USER: z.string(),
-  SURREALDB_PASS: z.string(),
-  SURREALDB_LOG_LEVEL: z.string(),
-  SURREALDB_NS: z.string(),
-  SURREALDB_DB: z.string(),
+  DATABASE_USER: z.string(),
+  DATABASE_PASS: z.string(),
+  DATABASE_NAMESPACE: z.string(),
+  DATABASE_NAME: z.string(),
 
   JWT_SECRET_KEY: z.string(),
   JWT_REFRESH_SECRET_KEY: z.string(),
@@ -27,6 +26,7 @@ type BaseEnvVariables = z.infer<typeof BaseEnvVariablesSchema>;
 @Injectable()
 export class BaseConfig {
   readonly version!: string;
+
   readonly nodeEnv: string;
   readonly logLevel: string;
 
@@ -35,11 +35,10 @@ export class BaseConfig {
   readonly apiUrl: string;
 
   readonly databaseUrl: string;
-  readonly surrealdbUser: string;
-  readonly surrealdbPass: string;
-  readonly surrealdbLogLevel: string;
-  readonly surrealdbNs: string;
-  readonly surrealdbDb: string;
+  readonly databaseUser: string;
+  readonly databasePass: string;
+  readonly databaseNamespace: string;
+  readonly databaseName: string;
 
   readonly jwtSecretKey: string;
   readonly jwtRefreshSecretKey: string;
@@ -54,11 +53,10 @@ export class BaseConfig {
       API_URL: configService.get<string>('API_URL'),
 
       DATABASE_URL: configService.get<string>('DATABASE_URL'),
-      SURREALDB_USER: configService.get<string>('SURREALDB_USER'),
-      SURREALDB_PASS: configService.get<string>('SURREALDB_PASS'),
-      SURREALDB_LOG_LEVEL: configService.get<string>('SURREALDB_LOG_LEVEL'),
-      SURREALDB_NS: configService.get<string>('SURREALDB_NS'),
-      SURREALDB_DB: configService.get<string>('SURREALDB_DB'),
+      DATABASE_USER: configService.get<string>('DATABASE_USER'),
+      DATABASE_PASS: configService.get<string>('DATABASE_PASS'),
+      DATABASE_NAMESPACE: configService.get<string>('DATABASE_NAMESPACE'),
+      DATABASE_NAME: configService.get<string>('DATABASE_NAME'),
 
       JWT_SECRET_KEY: configService.get<string>('JWT_SECRET_KEY'),
       JWT_REFRESH_SECRET_KEY: configService.get<string>(
@@ -68,6 +66,7 @@ export class BaseConfig {
 
     // biome-ignore lint/style/noNonNullAssertion: off
     this.version = process.env.npm_package_version!;
+
     this.nodeEnv = config.NODE_ENV;
     this.logLevel = config.LOG_LEVEL || 'info';
 
@@ -76,11 +75,10 @@ export class BaseConfig {
     this.apiUrl = config.API_URL;
 
     this.databaseUrl = config.DATABASE_URL;
-    this.surrealdbUser = config.SURREALDB_USER;
-    this.surrealdbPass = config.SURREALDB_PASS;
-    this.surrealdbLogLevel = config.SURREALDB_LOG_LEVEL;
-    this.surrealdbNs = config.SURREALDB_NS;
-    this.surrealdbDb = config.SURREALDB_DB;
+    this.databaseUser = config.DATABASE_USER;
+    this.databasePass = config.DATABASE_PASS;
+    this.databaseNamespace = config.DATABASE_NAMESPACE;
+    this.databaseName = config.DATABASE_NAME;
 
     this.jwtSecretKey = config.JWT_SECRET_KEY;
     this.jwtRefreshSecretKey = config.JWT_REFRESH_SECRET_KEY;
